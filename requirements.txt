@@ -1,0 +1,14 @@
+# Reddit Life Simulator — зависимости
+# Версия проекта: 1.0.2
+
+# Тесты
+pytest>=7.0.0
+
+# Браузерная эмуляция
+playwright>=1.40.0
+
+# Telegram-отчёт
+requests>=2.28.0
+
+# Загрузка .env (TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID и др.)
+python-dotenv>=1.0.0

@@ -1,0 +1,70 @@
+# Reddit Life Simulator
+# Не игнорировать: .env.example (шаблон), VERSION, config/*.json.example (примеры), docs/, knowledge_base/, tests/, *.py
+
+# ========== Секреты и локальная конфигурация ==========
+.env
+.env.local
+.env.*.local
+*.env.local
+# Локальные конфиги с прокси/паролями — не коммитить
+config/local/
+config/*.local.json
+config/*.secret.json
+# Реальные конфиги аккаунтов (account_id, proxy, profile_dir и т.д.) — в репо только *.json.example
+config/*.json
+
+# ========== Рабочие данные (логи, состояние аккаунтов, профили браузера) ==========
+logs/
+state/
+
+# ========== Python ==========
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ========== Виртуальное окружение ==========
+.venv/
+venv/
+ENV/
+
+# ========== Тесты и покрытие ==========
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ========== IDE и редакторы ==========
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ========== Playwright ==========
+playwright-report/
+test-results/
+blob-report/
+.playwright/
+
+# ========== Прочее ==========
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,113 @@
+# === Cursor Universal Rules ===
+
+# 1. Code Safety (Critical)
+- Do not modify, delete, simplify, or refactor any existing code, logic, naming, structure, or comments without explicit permission.
+- If something appears redundant or outdated, mark it as "candidate for removal" and request approval.
+- Maintain backward compatibility unless explicitly allowed otherwise.
+
+# 2. Block-Based Editing
+- If a file exceeds 1000 lines or 20 KB, all edits must use block markers:
+# ===================== БЛОК <номер>: <описание> =====================
+...код...
+# ===================== КОНЕЦ БЛОКА <номер> =====================
+- Always show the full modified block.
+
+# 3. Versioning & Header Requirements (Universal)
+- Every source file must contain a header including:
+  - Semantic version (MAJOR.MINOR.PATCH)
+  - Description of the file
+  - Total development time (must increase automatically)
+  - Timestamp of last update
+  - Changelog (preserve history)
+- On ANY update:
+  - Increment MINOR when adding new functionality.
+  - Increment PATCH on fixes or adjustments.
+  - Increase accumulated time spent.
+  - Add a clear changelog entry.
+- Never reset version numbers, changelog, or time counters.
+
+# 4. Mandatory Documentation (Universal)
+- Maintain /docs/ directory with:
+  - README.md
+  - CHANGELOG.md
+  - Additional docs if required
+- ANY structural or logical update must be reflected in the documentation.
+- Documentation must always stay consistent with code.
+
+# 5. Internal Knowledge Base (CRITICAL)
+- Project MUST include a knowledge_base/ directory with:
+  - architecture.md
+  - components.md
+  - logic.md
+  - requirements.md
+  - decisions.md
+  - glossary.md
+  - ai_prompting_guidelines.md
+
+- Cursor MUST:
+  - Consult the knowledge_base before making ANY change.
+  - Update relevant files in knowledge_base whenever behavior, architecture, naming, or design decisions change.
+  - Add new ADR entries to decisions.md when architecture or key logic is modified.
+  - Never contradict information in knowledge_base.
+  - Refuse changes that violate the documented standards unless explicitly permitted.
+
+- If knowledge_base is missing or incomplete — Cursor must request permission to create or update it.
+
+# 6. Mandatory Testing (Universal)
+- For ANY change in logic or functionality:
+  - Create or update tests in /tests/.
+  - Use pytest for Python or equivalent frameworks in other languages.
+  - Cover normal, edge, and error scenarios.
+  - Mock ALL external dependencies (network, APIs, databases).
+  - Tests must not depend on internet access or live services.
+
+# 7. Automatic Test Execution (Critical)
+- After ANY code change:
+  - Automatically run the entire test suite.
+  - Display full results.
+  - Prevent completion if any tests fail.
+  - Suggest fixes for broken tests or logic.
+- No update is valid until ALL tests pass successfully.
+
+# 8. Modular Structure
+- Encourage modularization.
+- Do not reorganize directories, rename files, or change architecture without explicit approval.
+
+# 9. Required Workflow Before Any Change
+- Always generate:
+  - <CODE_REVIEW> – analysis of current logic
+  - <PLANNING> – step-by-step plan of changes
+- Wait for explicit user approval before applying changes.
+
+# 10. Security Review
+- After significant updates, generate <SECURITY_REVIEW> with evaluation of:
+  - potential vulnerabilities
+  - dependency issues
+  - data safety
+  - deployment/hosting/monitoring impact
+  - backward compatibility risks
+
+# 11. Logging Rules (Universal)
+- Maintain or enhance existing logging.
+- Ensure logs are stored in ./logs/.
+- Auto-create directories/files if missing.
+- Never reduce log detail without explicit permission.
+
+# 12. Communication & Output
+- Respond only in Russian.
+- After changes, ALWAYS output full updated files or full updated blocks.
+- If an error was made, reply: "Сделал ошибки, переделываем."
+
+# 13. User Approval & Integrity
+- Explicit approval is required before ANY modification of:
+  - architecture
+  - folder structure
+  - API contract
+  - caching logic
+  - naming conventions
+  - test infrastructure
+  - documentation structure
+  - knowledge_base contents
+- Maintain maximum code integrity and avoid unnecessary optimizations.
+
+# === End Rules ===
